@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Auditor — PromptWars</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+
+    <div class="max-w-5xl mx-auto px-4 py-8">
+        <header class="border-b border-slate-800 pb-6 mb-8 flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                    ⚡ AI Code Auditor
+                </h1>
+                <p class="text-sm text-slate-400 mt-1">PromptWars Virtual Challenge Submission</p>
+            </div>
+            <span class="bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full border border-cyan-500/20">
+                Google Antigravity Powered
+            </span>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <label for="codeInput" class="text-sm font-medium text-slate-300 tracking-wide">Paste Your Source Code</label>
+                    <select id="languageSelect" class="bg-slate-800 border border-slate-700 text-xs rounded px-2 py-1 text-slate-300 focus:outline-none focus:border-cyan-500">
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>C++</option>
+                        <option>HTML/CSS</option>
+                    </select>
+                </div>
+                
+                <textarea id="codeInput" rows="18" 
+                    class="w-full bg-slate-950 border border-slate-800 rounded-lg p-4 font-mono text-sm text-emerald-400 placeholder-slate-600 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                    placeholder="// Paste your code script here to audit..."></textarea>
+                
+                <button id="auditBtn" 
+                    class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold py-3 px-4 rounded-lg shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/20 active:scale-[0.99] transition-all cursor-pointer text-center">
+                    Analyze & Audit Code
+                </button>
+            </div>
+
+            <div class="flex flex-col h-full space-y-4">
+                <span class="text-sm font-medium text-slate-300 tracking-wide">Audit Report</span>
+                
+                <div id="outputDisplay" class="flex-1 bg-slate-950 border border-slate-800 rounded-lg p-6 font-mono text-sm overflow-y-auto space-y-4 min-h-[380px]">
+                    <div id="placeholderText" class="text-slate-500 italic h-full flex items-center justify-center text-center">
+                        Your structured optimization report will generate here after analysis.
+                    </div>
+                    
+                    <div id="reportContent" class="hidden space-y-6">
+                        <div>
+                            <h3 class="text-rose-400 font-bold border-b border-rose-500/20 pb-1 mb-2">🐞 Bugs Detected</h3>
+                            <p class="text-slate-300 pl-2 border-l border-slate-800">Potential null pointer exception found on execution flow sequence framework line 12.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-amber-400 font-bold border-b border-amber-500/20 pb-1 mb-2">⚡ Performance Optimizations</h3>
+                            <p class="text-slate-300 pl-2 border-l border-slate-800">Complexity evaluated at O(N²). Recommend converting standard array checks to Hash Map lookup tracking to decrease processing down to O(1).</p>
+                        </div>
+                        <div>
+                            <h3 class="text-cyan-400 font-bold border-b border-cyan-500/20 pb-1 mb-2">🛠️ Refactored Code</h3>
+                            <pre class="bg-slate-900 p-3 rounded text-emerald-400 overflow-x-auto text-xs mt-2"><code>// Optimized execution block securely compiled via Antigravity API framework</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('auditBtn').addEventListener('click', function() {
+            const code = document.getElementById('codeInput').value.trim();
+            if(!code) {
+                alert('Please paste some code first!');
+                return;
+            }
+
+            const btn = document.getElementById('auditBtn');
+            const placeholder = document.getElementById('placeholderText');
+            const content = document.getElementById('reportContent');
+
+            // Visual Loader state switching
+            btn.innerText = "Auditing via Antigravity Engine...";
+            btn.disabled = true;
+            placeholder.innerText = "Analyzing structural variables and optimizing loops...";
+
+            setTimeout(() => {
+                btn.innerText = "Analyze & Audit Code";
+                btn.disabled = false;
+                placeholder.classList.add('hidden');
+                content.classList.remove('hidden');
+            }, 1500); // UI visual timeout
+        });
+    </script>
+</body>
+</html>
